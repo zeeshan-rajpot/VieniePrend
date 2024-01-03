@@ -1,0 +1,80 @@
+/* Adjust the carousel height and center it */
+.carousel.carousel-slider {
+  height: 450px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* Needed for absolute positioning of arrows */
+}
+
+/* Styles for custom arrows */
+.custom-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+}
+
+.custom-prev {
+  left: 0;
+  margin-left: 50px;
+  margin-top: -250px !important;
+}
+
+.custom-next {
+  margin-right: 50px;
+  margin-top: -250px !important;
+  right: 0;
+}
+
+/* Example styles for custom indicators */
+.carousel .control-dots {
+  margin-top: 150px !important;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.carousel .control-dots .dot {
+  width: 10px;
+  height: 10px;
+  background-color: #C6CDDB;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.carousel .control-dots .dot.selected {
+  background: #72B63C;
+}
+
+.selected {
+  background-color: transparent;
+}
+
+@media screen and (min-width: 1380px) {
+  .custom-prev {
+    margin-left: 230px !important;
+  }
+
+  .custom-next {
+    margin-right: 310px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .custom-arrow {
+    display: none;
+  }
+
+  .carousel .control-dots {
+    display: none;
+  }
+}

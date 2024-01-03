@@ -1,0 +1,102 @@
+.Footerbackground {
+  background-color: rgb(238, 248, 251);
+}
+
+.SocialiconBackground {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #72b63c;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.SocialiconBackground img {
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+}
+
+.FooterLine {
+  color: #FD9F00 !important;
+}
+
+/* .afterMenu {
+  font-family: Poppins;
+  color: #747e93;
+  text-transform: uppercase;
+}
+.afterMenu h6 {
+  margin-top: 18px;
+  font-weight: 400;
+  font-size: 12px;
+}
+.SocialiconBackground {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #72b63c;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+.SocialiconBackground img {
+  width: 50%; 
+  height: 50%;
+  object-fit: contain; 
+}
+.SocialiconBackground {
+  margin-left: 40px !important;
+}
+.MenuCOl {
+  margin-top: 100px;
+  padding-left: 100px;
+}
+.FooterDiv {
+  margin-bottom: 30px;
+  margin-top: 30px;
+  padding-bottom: 100px;
+  width: 70%;
+}
+.FooterLine {
+  border: 2px solid #72b63c;
+  width: 85%;
+  margin-left: 130px;
+}
+.privacyend {
+  margin-right: 70px;
+}
+.end {
+  color: #747e93;
+  margin-left: 130px;
+}
+
+.facebook {
+  margin-left: 120px !important;
+}
+@media screen and (min-width: 1380px) {
+  .FirstCol {
+    margin-left: 570px;
+  }
+  .MenuCOl {
+    padding-left: 150px;
+  }
+  .SocialiconBackground {
+    margin-left: 80px !important;
+  }
+  .facebook {
+    margin-left: 190px !important;
+  }
+  .FooterLine {
+    border: 1px solid #72b63c;
+    margin-left: 100px;
+  }
+  .end {
+    color: #747e93;
+    margin-left: 130px;
+  }
+  .privacyend {
+    margin-right: 155px;
+  }
+} */

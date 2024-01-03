@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255)
+  );
+}
+
+.navContainer {
+  min-width: 100%;
+  /* margin: 0 auto; */
+  padding: 0 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.mainnavbar {
+  height: 60px;
+  background-color: transparent;
+  position: relative;
+  z-index: 1;
+}
+.mainnavbar {
+  --bs-navbar-padding-y: 1.7rem !important;
+}
+.logo {
+  margin-top: 30px !important;
+}
+
+.menu-icon {
+  display: none;
+}
+
+.nav-elements {
+  margin-top: 30px !important;
+}
+
+.nav-elements ul {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  text-transform: uppercase;
+}
+
+.nav-elements ul li:not(:last-child) {
+  margin-right: 40px;
+  color: #FD9F00;
+}
+
+.nav-elements ul a {
+  font-size: 10px;
+  font-weight: 400;
+  color: #444444;
+  text-decoration: none;
+}
+
+NavLink.active {
+  color:#FD9F00;
+}
+
+/*------------------------- Button Design ------------------------- */
+.btn-submit {
+  background-color:#FD9F00;
+  color: #fff;
+  border-radius: 17px;
+  border: transparent;
+  font-size: 12px;
+  padding: 5px 15px 5px 15px;
+}
+/*------------------------- Responsive Design ------------------------- */
+
+@media (min-width: 1380px) {
+  .nav-elements {
+    margin-top: 30px !important;
+  }
+  .logo {
+    margin-top: 30px !important;
+  }
+
+  .nav-elements ul a {
+    font-size: 0.7vw !important;
+    font-weight: 400;
+    margin: 10px !important;
+  }
+  .btn-submit {
+    font-size: 16px;
+    padding: 5px 15px 5px 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+  }
+
+  .nav-elements {
+    position: absolute;
+    right: 0;
+    top: 80px;
+    background-color: #fff;
+    width: 0px;
+    height: calc(100vh - 60px);
+    transition: all 0.3s ease-in;
+    overflow: hidden;
+    z-index: 5;
+  }
+
+  .nav-elements.active {
+    width: 270px;
+  }
+
+  .nav-elements ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-elements ul li {
+    margin-right: unset;
+    margin-top: 22px;
+  }
+  .logo {
+    margin-left: 0% !important;
+  }
+}

@@ -1,0 +1,30 @@
+.circle-container {
+  width: 65px;
+  height: 61px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.circle-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bgImageDetails {
+  height: 90vh;
+  background-image: url('../../../../public/SofaDetails/old-chair.png');
+  background-position: center;
+  object-fit: cover;
+  overflow: hidden;
+  width: 80%
+}
+
+
+@media (max-width: 767px) {
+  .bgImageDetails {
+    width: 100%;
+    
+  }
+  
+}

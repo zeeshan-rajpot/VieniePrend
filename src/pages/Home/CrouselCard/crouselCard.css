@@ -1,0 +1,22 @@
+.testimonial-card.center {
+  opacity: 1.2;
+  transition: opacity 0.3s;
+}
+
+.testimonial-card.center {
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Surrounding cards */
+.testimonial-card:not(.center) {
+  opacity: 0.7;
+  /* Adjust opacity as needed */
+  transition: opacity 0.5s;
+}
+
+/* @media (max-width: 767px) {
+  .rescard {
+    width:900px !important;
+  }
+} */

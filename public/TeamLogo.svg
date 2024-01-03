@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="91.116" height="95.071" viewBox="0 0 91.116 95.071">
+  <defs>
+    <filter id="Ellipse_58" x="0" y="4.503" width="90.568" height="90.568" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.169"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Component_13_1" data-name="Component 13 – 1" transform="translate(1.361)">
+    <g id="Component_12_1" data-name="Component 12 – 1">
+      <g transform="matrix(1, 0, 0, 1, -1.36, 0)" filter="url(#Ellipse_58)">
+        <circle id="Ellipse_58-2" data-name="Ellipse 58" cx="36.284" cy="36.284" r="36.284" transform="translate(9 10.5)" fill="#fff"/>
+      </g>
+      <g id="Ellipse_59" data-name="Ellipse 59" fill="none" stroke="#fd9f00" stroke-width="2">
+        <circle cx="44.877" cy="44.877" r="44.877" stroke="none"/>
+        <circle cx="44.877" cy="44.877" r="43.877" fill="none"/>
+      </g>
+    </g>
+    <g id="technical-support-svgrepo-com" transform="translate(26.196 20.383)">
+      <path id="Path_4063" data-name="Path 4063" d="M71.618,324.632l-.9-2.648a12.7,12.7,0,0,0-11.49-8.6,10.117,10.117,0,0,1-1.445.932,2.865,2.865,0,0,1-4.734.992,8.958,8.958,0,0,1-4.73-1.924,12.7,12.7,0,0,0-11.49,8.6l-.9,2.648a2.5,2.5,0,0,0,2.362,3.3H69.254a2.5,2.5,0,0,0,2.364-3.3Z" transform="translate(-35.796 -285.636)" fill="#fd9f00"/>
+      <path id="Path_4064" data-name="Path 4064" d="M153.807,73.817c3.029-2.129,5.148-6.831,5.148-11.377,0-12.919-17.189-12.905-17.189,0,0,5.525,3.128,11.272,7.22,12.357a2.853,2.853,0,0,1,4.821-.98Z" transform="translate(-132.383 -48.085)" fill="#fd9f00"/>
+      <path id="Path_4065" data-name="Path 4065" d="M63.429,19.749a1.4,1.4,0,0,0,2.749-.337c0-6.214.3-6.794-.535-7.468C67.547.209,83.951.3,85.948,11.945c-.831.677-.533,1.254-.533,7.467a1.382,1.382,0,0,0,.637,1.147c0,4.834-1.961,4.551-7.857,6.114a1.457,1.457,0,1,0,.32,1.372c4.76-1.262,8.945-1.66,8.945-6.418V20.65a1.386,1.386,0,0,0,.7-.9c4.589-.094,4.59-6.97,0-7.064a1.375,1.375,0,0,0-.657-.869,10.619,10.619,0,0,0-.979-5.046c-5.614-11.585-22.2-7.052-22.455,4.175a4.11,4.11,0,0,0,.015.87,1.375,1.375,0,0,0-.657.869,3.532,3.532,0,0,0,0,7.064Z" transform="translate(-57.818 0)" fill="#fd9f00"/>
+    </g>
+  </g>
+</svg>

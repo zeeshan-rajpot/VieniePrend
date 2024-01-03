@@ -1,0 +1,8 @@
+.backgroundProfile {
+  background-image: url('/public/ProfilePage/view-modern-entryway-with-interior-decor.png');
+  background-position: center;
+  object-fit: cover;
+  height: 386px;
+  width: auto;
+  overflow: hidden;
+}

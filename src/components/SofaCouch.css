@@ -1,0 +1,45 @@
+.Seebtnport {
+  background-color: #72b63c;
+  border: none;
+  margin-left: 23px;
+  font-size: 15px;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px 0 0 22px;
+  width: 95% !important;
+  text-align: center;
+  height: 32px;
+  z-index: 10;
+  color: #fff;
+}
+.a-1 {
+  opacity: 0;
+  margin-left: 50px;
+}
+.a-2 {
+  opacity: 0;
+}
+.a-3 {
+  opacity: 0;
+}
+button:hover .a-1 {
+  z-index: 10;
+  opacity: 1;
+  padding-left: 0px;
+  justify-content: center;
+  transition: opacity 0.1s ease-in-out;
+}
+button:hover .a-2 {
+  justify-content: center;
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+button:hover .a-3 {
+  z-index: 10;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}

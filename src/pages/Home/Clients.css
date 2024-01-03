@@ -1,0 +1,8 @@
+.testmoniabackground {
+  background-image: url('../../../public/Crouselbg.png');
+  background-position: center;
+  background-size: cover;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 200px;
+}

@@ -1,0 +1,15 @@
+.backgroundimage {
+  background-image: url("/public/discoverPagebg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* Ensures the background image covers the entire element */
+  background-position: center;
+  /* Centers the background image */
+  width: 100%;
+  min-height: 100vh;
+  /* Sets a minimum height of the viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,7 @@
+.imageg {
+  background-image: url('../../../public/Portfolio.png');
+  background-position: center;
+  background-size: cover;
+  min-height: 100%;
+  padding-bottom: 12rem;
+}

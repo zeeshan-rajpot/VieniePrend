@@ -1,0 +1,63 @@
+.backDot {
+  background-image: url('../../../public/Counterbg.png');
+  background-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+.CountSpan {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.h3Count {
+  font-size: 50px;
+  color: #FD9F00;
+  font-weight: '500';
+}
+
+.h5countTitle {
+  font-weight: 400;
+  font-size: 16;
+  color: #747E93;
+}
+
+.CountCol {
+  text-align: center;
+  margin-top: 10px;
+  color: #FD9F00;
+}
+
+@media screen and (min-width: 1380px) {
+  .pCount {
+    font-size: '0.1vw !important';
+  }
+
+  .Ourh4 {
+    font-size: '1vw';
+  }
+
+  .CountSpan {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .h3Count {
+    font-size: 70px;
+    font-weight: 400;
+  }
+
+  .h5countTitle {
+    font-weight: 350;
+    font-size: 30px;
+    color: #444444;
+  }
+}
+
+@media screen and (max-width: 780px) {
+
+  .h3Count {
+    font-size: 13px !important;
+  }
+
+}

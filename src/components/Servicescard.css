@@ -1,0 +1,30 @@
+.service {
+  background: linear-gradient(
+    135deg,
+    #686868 0%,
+    rgba(172, 255, 104, 0.051) 0%,
+    transparent 100%
+  ) !important;
+  height: 250px !important;
+  border-radius: 15px !important;
+  border: 1px solid#83917D !important;
+  width: 100% !important;
+  color: #fff !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto !important; /* Center the card horizontally */
+}
+
+.service {
+  padding: 5%;
+  /* padding-top: 20% !important; */
+  /* z-index: 0; */
+}
+
+.cardLogo {
+  position: absolute;
+  margin-top: -60px;
+  /* z-index: 1; */
+}
