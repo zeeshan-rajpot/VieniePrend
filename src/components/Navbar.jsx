@@ -2,7 +2,7 @@ import { Cross as Hamburger } from 'hamburger-react';
 import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import Logo from '../../public/NavbarLogo.svg';
+// import Logo from '../../public/NavbarLogo.svg';
 import './Navbar.css';
 
 const Navbar = () =>
@@ -32,7 +32,9 @@ const Navbar = () =>
       <div className='navContainer'>
         <Link to='/'>
           <div className='logo'>
-            <img src={ Logo } style={ { width: '80%', height: '80%' } } />
+            <img 
+            // src={ Logo }
+             style={ { width: '80%', height: '80%' } } />
           </div>
         </Link>
         <div className='menu-icon' onClick={ handleShowNavbar }>
@@ -52,8 +54,8 @@ const Navbar = () =>
             </li>
             <li>
               <NavLink
-                // to='/List'
-                to='#'
+                to='/List'
+                // to='List'
                 activeClassName='active'
                 onClick={ () => handleNavLinkClick( 'List' ) }
                 style={ {

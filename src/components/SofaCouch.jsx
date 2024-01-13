@@ -2,8 +2,9 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import { Row, Col } from 'react-bootstrap';
 import './SofaCouch.css';
-export const SofaCouch = ( { title, imageSrc, detail, backgroundColor } ) =>
-{
+export const SofaCouch = ( { title, imageSrc, detail, backgroundColor ,likes ,comments ,createdAt ,idproduct} ) =>{
+  const formattedDate = new Date(createdAt).toLocaleString();
+
   return (
     <div >
       <Card
@@ -56,7 +57,7 @@ export const SofaCouch = ( { title, imageSrc, detail, backgroundColor } ) =>
             <Col lg={ 6 } xs={ 6 }>
               <div className='text-start'>
 
-                <p className='my-0' style={ { color: '#000000', fontSize: '11px' } }>830 likes</p>
+                <p className='my-0' style={ { color: '#000000', fontSize: '11px' } }>{likes} likes</p>
               </div>
               <p style={ { color: '#585D5E', fontSize: '10px', textAlign: 'left' } }>
                 { detail }
@@ -75,9 +76,9 @@ export const SofaCouch = ( { title, imageSrc, detail, backgroundColor } ) =>
           </Row>
           <Row>
             <Col className='text-start'>
-              <p className='my-0' style={ { color: '#B7BBC0', fontSize: '11px' } }>View all 171 comments</p>
+              <p className='my-0' style={ { color: '#B7BBC0', fontSize: '11px' } }>View all {comments} comments</p>
             </Col>
-            <div className='text-start'><p className='my-0' style={ { color: '#C6CCD2', fontSize: '8px' } }>4 days ago</p></div>
+            <div className='text-start'><p className='my-0' style={ { color: '#C6CCD2', fontSize: '8px' } }>{formattedDate} </p></div>
           </Row>
         </Card.Body>
       </Card>

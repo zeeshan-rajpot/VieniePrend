@@ -17,7 +17,7 @@ export const MainTab = () =>
   return (
     <div>
       <Tabbar activeTab={ activeTab } onTabClick={ handleTabClick } />
-      { activeTab === "Sofa & Couch" && <SofaCouch /> }
+      { activeTab === "SofaCouch" && <SofaCouch /> }
       { activeTab === "Chair" && <Chair /> }
       { activeTab === "Clocks" && <Clocks /> }
       { activeTab === "Table" && <Table /> }

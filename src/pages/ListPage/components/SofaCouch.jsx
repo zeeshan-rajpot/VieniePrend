@@ -2,7 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import { Row, Col } from 'react-bootstrap';
 import './SofaCouch.css';
-export const SofaCouch = ( { Name, desc, imageSrc, detail, backgroundColor } ) =>
+export const SofaCouch = ( { Name, desc, imageSrc, detail, backgroundColor , likes ,comments ,title} ) =>
 {
   return (
     <div >
@@ -24,7 +24,7 @@ export const SofaCouch = ( { Name, desc, imageSrc, detail, backgroundColor } ) =
         >
           <Card.Img
             variant='top'
-            style={ { width: '100%', objectFit: 'cover' } }
+            style={ { width: '100%', objectFit: 'cover' ,height:'200px' } }
             src={ imageSrc }
           />
         </div>
@@ -45,7 +45,7 @@ export const SofaCouch = ( { Name, desc, imageSrc, detail, backgroundColor } ) =
                   >
                     { Name }
                   </h5>
-                  <p className='my-0 text-nowrap ' style={ { fontSize: '12px' } }>{ desc }</p>
+                  <p className='my-0 text-nowrap ' style={ { fontSize: '12px' } }>{ title }</p>
                 </div>
               </div>
 
@@ -59,7 +59,7 @@ export const SofaCouch = ( { Name, desc, imageSrc, detail, backgroundColor } ) =
             <Col lg={7 } xs={ 6 }>
               <div className='text-start'>
 
-                <p className='my-0' style={ { color: '#000000', fontSize: '11px' } }>830 likes</p>
+                <p className='my-0' style={ { color: '#000000', fontSize: '11px' } }>{likes} likes</p>
               </div>
               <p style={ { color: '#585D5E', fontSize: '10px', textAlign: 'left' } }>
                 { detail }
@@ -78,7 +78,7 @@ export const SofaCouch = ( { Name, desc, imageSrc, detail, backgroundColor } ) =
           </Row>
           <Row>
             <Col className='text-start'>
-              <p className='my-0' style={ { color: '#B7BBC0', fontSize: '11px' } }>View all 171 comments</p>
+              <p className='my-0' style={ { color: '#B7BBC0', fontSize: '11px' } }>{comments} comments</p>
             </Col>
             <div className='text-start'><p className='my-0' style={ { color: '#C6CCD2', fontSize: '8px' } }>4 days ago</p></div>
           </Row>
