@@ -7,6 +7,21 @@ export const Tabbar = ( { activeTab, onTabClick } ) =>
     <div>
 
       <Row className="m-auto backbg-tab mt-5 mt-md-4">
+      <Col xs={ 6 } xl={ 2 }
+          style={ {
+            paddingTop: "10px",
+            paddingBottom: "10px",
+          } }
+        >
+          <button
+            className={
+              activeTab === "All" ? "bgactiveTab-btn shadow" : "bgTab-btn"
+            }
+            onClick={ () => onTabClick( "All" ) }
+          >
+            All
+          </button>
+        </Col>
         <Col xs={ 6 } xl={ 2 }
           style={ {
             paddingTop: "10px",

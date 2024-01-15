@@ -20,7 +20,7 @@ function App ()
           <Route path="/" element={ <Home /> } />
           <Route path="/home" element={ <Homepage /> } />
           <Route path="/List" element={ <ListPage /> } />
-          <Route path="/SofaPage" element={ <SofaPage /> } />
+          <Route path="/SofaPage/:id" element={ <SofaPage /> } />
           <Route path="/AddPro" element={ <AddPro /> } />
           <Route path="/ProfileDetails" element={ <ProfileDetails /> } />
           {/*  <Route path="/Services" element={ <Services /> } />

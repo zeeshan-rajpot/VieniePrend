@@ -2,6 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import { Row, Col } from 'react-bootstrap';
 import './SofaCouch.css';
+import { Link } from 'react-router-dom';
 export const SofaCouch = ( { title, imageSrc, detail, backgroundColor ,likes ,comments ,createdAt ,idproduct} ) =>{
   const formattedDate = new Date(createdAt).toLocaleString();
 
@@ -23,11 +24,13 @@ export const SofaCouch = ( { title, imageSrc, detail, backgroundColor ,likes ,co
             borderRadius: '22px 22px 0px 0px',
           } }
         >
+          <Link to={`/SofaPage/${idproduct}`}>
           <Card.Img
             variant='top'
             style={ { width: '100%', objectFit: 'cover' } }
             src={ imageSrc }
           />
+          </Link>
         </div>
         <Card.Body>
           <Row className='d-flex justify-content-between align-items-center'>

@@ -6,9 +6,10 @@ import Clocks from './Tabbar Pages/Clocks.jsx';
 import Table from './Tabbar Pages/Table.jsx';
 import Bed from './Tabbar Pages/Bed.jsx';
 import Wardrobe from './Tabbar Pages/Wardrobe.jsx';
+import All from "./Tabbar Pages/All.jsx";
 export const MainTab = () =>
 {
-  const [ activeTab, setActiveTab ] = useState( "Chair" );
+  const [ activeTab, setActiveTab ] = useState( "All" );
 
   const handleTabClick = ( tab ) =>
   {
@@ -17,12 +18,14 @@ export const MainTab = () =>
   return (
     <div>
       <Tabbar activeTab={ activeTab } onTabClick={ handleTabClick } />
+      { activeTab === "All" && <All /> }
       { activeTab === "SofaCouch" && <SofaCouch /> }
       { activeTab === "Chair" && <Chair /> }
       { activeTab === "Clocks" && <Clocks /> }
       { activeTab === "Table" && <Table /> }
       { activeTab === "Bed" && <Bed /> }
       { activeTab === "wardrobe" && <Wardrobe /> }
+      {/* { activeTab === "All" && <Wardrobe /> } */}
     </div>
   );
 };
