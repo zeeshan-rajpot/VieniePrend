@@ -12,12 +12,13 @@
 }
 
 .bgImageDetails {
-  height: 90vh;
-  background-image: url('../../../../public/SofaDetails/old-chair.png');
+  /* height: 90vh; */
+  /* background-image: url('../../../../public/SofaDetails/old-chair.png'); */
   background-position: center;
   object-fit: cover;
   overflow: hidden;
-  width: 80%
+  width: 80%;
+  background-size: cover;
 }
 
 

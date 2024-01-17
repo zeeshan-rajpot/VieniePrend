@@ -2,7 +2,8 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import { Row, Col } from 'react-bootstrap';
 import './SofaCouch.css';
-export const SofaCouch = ( { Name, desc, imageSrc, detail, backgroundColor , likes ,comments ,title} ) =>
+import { Link } from 'react-router-dom';
+export const SofaCouch = ( { Name, desc, imageSrc, detail, backgroundColor , likes ,comments ,title ,idproduct} ) =>
 {
   return (
     <div >
@@ -22,11 +23,13 @@ export const SofaCouch = ( { Name, desc, imageSrc, detail, backgroundColor , lik
             borderRadius: '22px 22px 0px 0px',
           } }
         >
+          <Link to={`/SofaPage/${idproduct}`}>
           <Card.Img
             variant='top'
             style={ { width: '100%', objectFit: 'cover' ,height:'200px' } }
             src={ imageSrc }
           />
+          </Link>
         </div>
         <Card.Body>
           <Row className='d-flex justify-content-between align-items-center'>

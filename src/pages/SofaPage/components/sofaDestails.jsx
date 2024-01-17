@@ -6,6 +6,7 @@ import { useMediaQuery } from 'react-responsive';
 
 export const sofaDestails = ({ data }) => {
   console.log(data)
+  const [userComment, setUserComment] = useState("");
   const [newComment, setNewComment] = useState('');
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
@@ -53,8 +54,16 @@ export const sofaDestails = ({ data }) => {
       console.error('Error adding comment:', error);
       // Handle error, show error message, or perform other actions on error.
     }
+
+
+    setTimeout(() => {
+      setComments(data?.comments || []);
+    }, 1000);
   };
 
+
+
+  
 
   return (
     <div>
@@ -84,12 +93,12 @@ export const sofaDestails = ({ data }) => {
         </Row>
         <Row className='mt-5'>
           <Col lg={12} xl={12} xs={12}>
-            <div className='m-auto bgImageDetails shadow'>
+            <div className='m-auto bgImageDetails shadow' 
+            // style={{ backgroundImage: 'url("/public/SofaDetails/old-chair.png")' }}
+            style={{ backgroundImage: data?.images && data.images.length > 0 ? `url("${data.images[0]}")` : 'none' }}
+            >
 
-              <div className='text-center mx-auto rounded-5 ' style={
-
-                detailStyle
-              }>
+              <div className='text-center mx-auto rounded-5 ' style={detailStyle}>
                 <p className='text-center pt-3 my-0' style={{ color: '#FFFDFA', fontSize: '22px' }}>{data?.name}</p>
                 <p className='my-0 px-4 pb-2' style={{ color: '#FFFDFA', fontSize: '14px' }}>   {data?.description} </p>
               </div>
@@ -165,48 +174,71 @@ export const sofaDestails = ({ data }) => {
           </div>
 
 
-
           <div>
-            {data?.comments?.length > 0 ? (
-              data.comments.map((user, index) => (
-                <div key={index} className='shadow p-3 mx-3 rounded-5 mt-5'>
-                  <div className='p-2 ms-2 mt-2 d-flex align-items-center '>
-                    <div
-                      style={{
-                        width: '28px',
-                        height: '28px',
-                        backgroundPosition: 'center',
-                        objectFit: 'cover',
-                        borderRadius: '50%',
-                        overflow: 'hidden',
-                      }}
-                    >
-                      <img src='' alt='' style={{ width: '100%', height: '100%' }} />
-                    </div>
-                    <div className='ms-3'>
-                      <p className='my-0' style={{ color: '#585D5E', fontSize: '14px' }}>
-                        {user?.user?.name}
-                      </p>
-                    </div>
-                  </div>
-                  <p className='my-0 ms-3' style={{ color: '#585D5E', fontSize: '14px' }}>
-                    {user?.text}
+        {data?.comments?.length > 0 ? (
+          data.comments.map((user, index) => (
+            <div key={index} className='shadow p-3 mx-3 rounded-5 mt-5'>
+              <div className='p-2 ms-2 mt-2 d-flex align-items-center '>
+                <div
+                  style={{
+                    width: '28px',
+                    height: '28px',
+                    backgroundPosition: 'center',
+                    objectFit: 'cover',
+                    borderRadius: '50%',
+                    overflow: 'hidden',
+                  }}
+                >
+                  <img src='' alt='' style={{ width: '100%', height: '100%' }} />
+                </div>
+                <div className='ms-3'>
+                  <p className='my-0' style={{ color: '#585D5E', fontSize: '14px' }}>
+                    {user?.user?.name}
                   </p>
                 </div>
-              ))
-            ) : (
-              <div className='shadow p-3 mx-3 rounded-5 mt-5'>
-                <div className='p-2 ms-2 mt-2 d-flex align-items-center '>
-                  <p>No comments yet.</p>
-
-                </div>
-
               </div>
-
-
-
-            )}
+              <p className='my-0 ms-3' style={{ color: '#585D5E', fontSize: '14px' }}>
+                {user?.text}
+              </p>
+            </div>
+          ))
+        ) : (
+          <div className='shadow p-3 mx-3 rounded-5 mt-5'>
+            <div className='p-2 ms-2 mt-2 d-flex align-items-center '>
+              <p>No comments yet.</p>
+            </div>
           </div>
+        )}
+      </div>
+      <div className='shadow p-3 mx-3 rounded-5 mt-5'>
+            <div className='p-2 ms-2 mt-2 d-flex align-items-center '>
+              <p>No comments yet.</p>
+            </div>
+          </div>
+          <div className='shadow p-3 mx-3 rounded-5 mt-5'>
+              <div className='p-2 ms-2 mt-2 d-flex align-items-center '>
+                <div
+                  style={{
+                    width: '28px',
+                    height: '28px',
+                    backgroundPosition: 'center',
+                    objectFit: 'cover',
+                    borderRadius: '50%',
+                    overflow: 'hidden',
+                  }}
+                >
+                  <img src='' alt='' style={{ width: '100%', height: '100%' }} />
+                </div>
+                <div className='ms-3'>
+                  <p className='my-0' style={{ color: '#585D5E', fontSize: '14px' }}>
+                   You
+                  </p>
+                </div>
+              </div>
+              <p className='my-0 ms-3' style={{ color: '#585D5E', fontSize: '14px' }}>
+               coment will be there 
+              </p>
+            </div>
 
    
           <div>

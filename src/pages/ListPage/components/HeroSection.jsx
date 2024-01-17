@@ -68,6 +68,7 @@ export const HeroSection = () => {
   data.map((item) => (
     <Col key={item.id} lg={3} xs={12} md={3} xl={3}>
       <SofaCard
+      idproduct={item._id}
         Name={item.user.name}
         title={item.name}
         detail={item.description}

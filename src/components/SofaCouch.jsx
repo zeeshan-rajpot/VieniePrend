@@ -3,7 +3,20 @@ import Card from 'react-bootstrap/Card';
 import { Row, Col } from 'react-bootstrap';
 import './SofaCouch.css';
 import { Link } from 'react-router-dom';
-export const SofaCouch = ( { title, imageSrc, detail, backgroundColor ,likes ,comments ,createdAt ,idproduct} ) =>{
+
+const TruncatedParagraph = ({ text, maxLength }) => {
+  const truncatedText = text.length > maxLength ? `${text.substring(0, maxLength)}...` : text;
+
+  return (
+    <p style={{ color: '#585D5E', fontSize: '10px', textAlign: 'left' }}>
+      {truncatedText}
+    </p>
+  );
+};
+
+export const SofaCouch = ( { title, imageSrc, detail, backgroundColor ,likes ,comments ,createdAt ,idproduct ,maxLength } ) =>{
+
+
   const formattedDate = new Date(createdAt).toLocaleString();
 
   return (
@@ -12,7 +25,7 @@ export const SofaCouch = ( { title, imageSrc, detail, backgroundColor ,likes ,co
         className='shadow'
         style={ {
           width: '100%',
-          height: '28rem',
+          // height: '24rem',
           borderRadius: '22px',
           marginTop: '70px',
         } }
@@ -27,7 +40,7 @@ export const SofaCouch = ( { title, imageSrc, detail, backgroundColor ,likes ,co
           <Link to={`/SofaPage/${idproduct}`}>
           <Card.Img
             variant='top'
-            style={ { width: '100%', objectFit: 'cover' } }
+            style={ { width: '100%', objectFit: 'cover', height:'200px' } }
             src={ imageSrc }
           />
           </Link>
@@ -62,9 +75,9 @@ export const SofaCouch = ( { title, imageSrc, detail, backgroundColor ,likes ,co
 
                 <p className='my-0' style={ { color: '#000000', fontSize: '11px' } }>{likes} likes</p>
               </div>
-              <p style={ { color: '#585D5E', fontSize: '10px', textAlign: 'left' } }>
-                { detail }
-              </p>
+              
+
+              <TruncatedParagraph text={detail} maxLength={30} />
             </Col>
             <Col lg={ 6 } xs={ 6 }>
               <button className='Seebtnport'
