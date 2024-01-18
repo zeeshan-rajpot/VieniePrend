@@ -11,7 +11,27 @@ export const MainPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [llocation, setLlocation] = useState("");
   const [productDescription, setProductDescription] = useState("");
- 
+  // const [lastSelectedIndex, setLastSelectedIndex] = useState(-1);
+
+  const [selectionAllowed, setSelectionAllowed] = useState(true);
+  const [lastSelectedIndex, setLastSelectedIndex] = useState(-1);
+
+  // ... (your existing code)
+
+  const handleImageSelect = (index, e) => {
+    if (index === 0 || (lastSelectedIndex === -1 && index === 1)) {
+      const newFiles = [...files];
+      newFiles[index] = e.target.files[0];
+      setFiles(newFiles);
+      setLastSelectedIndex(index);
+      if (index === 0) {
+        setSelectionAllowed(false); // Disable file selection after index 0
+      }
+    } else {
+      alert("Please select images sequentially starting from the 0 index.");
+      e.preventDefault(); // Prevents going to the next selected file
+    }
+  };
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
   const MainWidth = {
@@ -26,6 +46,24 @@ export const MainPage = () => {
   const [files, setFiles] = useState([]);
   const [previews, setPreviews] = useState([]);
 console.log(files)
+
+
+const fileNames = (files || []).map((file, index) => {
+  return file?.name || `Undefined File ${index + 1}`;
+});
+
+console.log(fileNames);
+
+
+console.log(fileNames);
+
+
+
+
+
+
+
+
   // rendering previews
   useEffect(() => {
     if (!files) return;
@@ -180,43 +218,48 @@ console.log(files)
             </Col>
           ) : (
             <> */}
-         {[1, 2, 3, 4, 5, 6].map((_, index) => {
-  const isIndexOccupied = !!previews[index];
+{
+  [1, 2, 3, 4, 5, 6].map((_, index) => {
+    const isIndexOccupied = !!previews[index];
+    const isVisible = index <= lastSelectedIndex;
 
-  return (
-    <Col xs={6} lg={4} key={index}>
-      <div className='d-flex flex-column justify-content-center align-items-center'>
-        <div className='shadow' style={{ width: '198px', height: '198px', margin: '10px' }}>
-          {!isIndexOccupied ? (
-            <div className='shadow p-2'
-              style={{
-                borderRadius: '50%',
-                width: '82',
-                height: '82',
-                backgroundPosition: 'center',
-                objectFit: 'cover'
-              }}
-            >
-              <input
-                type="file"
-                accept="image/jpg, image/jpeg, image/png"
-                onChange={(e) => {
-                  const newFiles = [...files];
-                  newFiles[index] = e.target.files[0];
-                  setFiles(newFiles);
-                }}
-              />
-            </div>
-          ) : (
-            <img src={previews[index]} alt={`preview-${index}`} style={{ width: '198px', height: '198px' }} />
-          )}
+    return (
+      <Col xs={6} lg={4} key={index}>
+        <div className='d-flex flex-column justify-content-center align-items-center'>
+          <div className='shadow' style={{ width: '198px', height: '198px', margin: '10px' }}>
+            {(isVisible || index === 0) ? (
+              isIndexOccupied ? (
+                <img src={previews[index]} alt={`preview-${index}`} style={{ width: '198px', height: '198px' }} />
+              ) : (
+                <div className='shadow p-2'
+                  style={{
+                    borderRadius: '50%',
+                    width: '82',
+                    height: '82',
+                    backgroundPosition: 'center',
+                    objectFit: 'cover'
+                  }}
+                >
+                  <input
+                    type="file"
+                    accept="image/jpg, image/jpeg, image/png"
+                    onChange={(e) => {
+                      const newFiles = [...files];
+                      newFiles[index] = e.target.files[0];
+                      setFiles(newFiles);
+                      setLastSelectedIndex(index + 1); // Set next index as the last selected index
+                    }}
+                    // disabled={isVisible}
+                  />
+                </div>
+              )
+            ) : null}
+          </div>
         </div>
-      </div>
-    </Col>
-  );
-})}
-
-            {/* </>
+      </Col>
+    );
+  })
+}        {/* </>
           )} */}
           
         </Row>

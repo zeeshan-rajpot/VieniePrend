@@ -5,28 +5,28 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 // import Logo from '../../public/NavbarLogo.svg';
 import './Navbar.css';
 
-const Navbar = () =>
-{
-  const [ showNavbar, setShowNavbar ] = useState( false );
-  const [ activeLink, setActiveLink ] = useState( null );
-  const isMobile = useMediaQuery( { maxWidth: 768 } );
+const Navbar = () =>{
+  const [showNavbar, setShowNavbar] = useState(false);
+  const [activeLink, setActiveLink] = useState(null);
+  const isMobile = useMediaQuery({ maxWidth: 768 });
   const navigate = useNavigate();
-  const handleShowNavbar = () =>
-  {
-    setShowNavbar( !showNavbar );
+
+  const handleShowNavbar = () => {
+    setShowNavbar(!showNavbar);
   };
 
-  const handleNavLinkClick = link =>
-  {
-    setActiveLink( link );
+  const handleNavLinkClick = (link) => {
+    setActiveLink(link);
   };
+
   const iconwidth = {
     objectFit: 'cover',
     height: '23px',
-    // width: isMobile ? '33px' : '23px',
     borderRadius: '50%',
     overflow: 'hidden',
   };
+
+  const token = localStorage.getItem('token');
   return (
     <nav className='mainnavbar'>
       <div className='navContainer'>
@@ -65,7 +65,7 @@ const Navbar = () =>
                 List Items
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink
                 to='/project'
                 activeClassName='active'
@@ -89,41 +89,39 @@ const Navbar = () =>
               >
                 About Us
               </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to='/AddPro'>
-                <button className='border-0 p-1 rounded-5 mx-1 w-100' style={ { backgroundColor: '#FD9F00', color: '#fff' } }>Add Product</button>
-              </NavLink>
-            </li>
-            <li>
-              <div className="shadow  rounded-5 p-2 ">
-                <img src="./Search.svg" alt="" style={ iconwidth } />
-              </div>
-            </li>
-            <li>
-              <NavLink
-                to='/ProfileDetails'>
-                <div
-                  style={ {
-                    width: '35px',
-                    height: '35px',
-                    borderRadius: '50%',
-                    overflow: 'hidden',
-                  } }
-                >
-                  <img
-                    src="./User Profile Image.jpg"
-                    style={ {
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                    } }
-                    alt=''
-                  />
-                </div>
-              </NavLink>
-            </li>
+            </li> */}
+            {token ? (
+              <>
+                <li>
+                  <NavLink to='/AddPro'>
+                    <button className='border-0 p-1 rounded-5 mx-1 w-100' style={{ backgroundColor: '#FD9F00', color: '#fff' }}>
+                      Add Product
+                    </button>
+                  </NavLink>
+                </li>
+                <li>
+                  <div className='shadow rounded-5 p-2'>
+                    <img src='/Search.svg' alt='' style={iconwidth} />
+                  </div>
+                </li>
+                <li>
+                  <NavLink to='/ProfileDetails'>
+                    <div style={{ width: '35px', height: '35px', borderRadius: '50%', overflow: 'hidden' }}>
+                      <img src='/User Profile Image.jpg' style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt='' />
+                    </div>
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              <li>
+                <NavLink to='/login'>
+                  <button className='border-0 p-1 rounded-5 mx-1 w-100' style={{ backgroundColor: '#FD9F00', color: '#fff' }}>
+                    Login
+                  </button>
+                </NavLink>
+              </li>
+            )}
+       
           </ul>
         </div>
       </div>

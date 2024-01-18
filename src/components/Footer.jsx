@@ -9,7 +9,7 @@ export const Footer = () =>
         <div className="footerDiv container text-center text-md-left">
           <div className="row  text-center  text-md-left">
             <div className="col-md-3 col-lg-3 colxl-3 mx-auto mt-3">
-              <img src='./NavbarLogo.svg' alt="sitelogo" />
+              <img src='/NavbarLogo.svg' alt="sitelogo" />
               {/*   <img src={ logo } alt="Createex" /> */ }
               <p
                 style={ {
@@ -186,7 +186,7 @@ export const Footer = () =>
                     marginRight: "10px",
                   } }
                 >
-                  <img src='./Facebook.svg' alt="FaceBook" />
+                  <img src='/Facebook.svg' alt="FaceBook" />
                 </div>
                 <div
                   // className="SocialiconBackground"
@@ -194,12 +194,12 @@ export const Footer = () =>
                     marginRight: "10px",
                   } }
                 >
-                  <img src='./Twitter.svg' alt="Twitter" />
+                  <img src='/Twitter.svg' alt="Twitter" />
                 </div>
                 <div
                 // className="SocialiconBackground insta"
                 >
-                  <img src='./instagaram.svg' alt="Instagram" />
+                  <img src='/instagaram.svg' alt="Instagram" />
                 </div>
               </div>
             </div>

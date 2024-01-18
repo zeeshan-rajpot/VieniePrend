@@ -1,0 +1,60 @@
+.login-img{
+    width: 600px;
+}
+.loginbackground{
+    background-image: url(../../assets/Rectangle%208.svg);
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+.input-container {
+    display: flex;
+    align-items: center;
+    padding: 9px;
+    padding-left: 20px;
+    /* border: 1px solid #ccc; */
+    /* border-radius: 9px; */
+    width: 70%;
+    text-align: center;
+    /* margin-left: 10% !important; */
+    
+  }
+  
+  .icon {
+    margin-right: 12px;
+    padding-right: 10px;
+    color: #666;
+  }
+  
+  input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    margin-left: 8px !important;
+
+  }
+
+  .Signin-btn {
+	background-color: #F3B755;
+	border-radius:38px;
+	display:inline-block;
+	cursor:pointer;
+    color: white;
+	font-family:Arial;
+	font-size:16px;
+    border: none;
+	padding:10px 70px;
+	text-decoration:none;
+
+    /* margin-left: 10%; */
+}
+
+
+
+@media (min-width: 992px) and (max-width: 1400px) {
+    .login-img{
+        width: 490px !important;
+    }
+    
+
+}

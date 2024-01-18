@@ -8,8 +8,7 @@ export const Chair = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const apiUrl = 'https://vieniprent.azurewebsites.net/api/customer/post/all/get';
-  const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTEwZDM0NDZkMjhmNzkzYWNjNDAxNCIsImlhdCI6MTcwNTA1MzUyMX0.C7aOrv_wFnjJaTNVBMsPgF9HVEPhtHYm6hc9lMJrFk0';
-
+  const token = localStorage.getItem('token');
   useEffect(() => {
     const fetchApiData = async () => {
       try {
@@ -17,7 +16,7 @@ export const Chair = () => {
         const response = await axios.get(apiUrl, {
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${authToken}`,
+            'Authorization': `Bearer ${token}`,
           },
         });
 
