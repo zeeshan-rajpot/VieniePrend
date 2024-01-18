@@ -7,6 +7,39 @@ import { ClipLoader } from "react-spinners";
 import { useMediaQuery } from 'react-responsive';
 
 export const ProfileDetails = () => {
+
+  const [profileData, setProfileData] = useState(null);
+
+  useEffect(() => {
+    // Fetch user profile data when the component mounts
+    const fetchProfileData = async () => {
+      try {
+        // Get the token from your localStorage or wherever it is stored
+        const token = localStorage.getItem('token');
+
+        // Make a GET request with the token in the headers
+        const response = await axios.get(
+          'https://vieniprent.azurewebsites.net/api/auth/myprofile/get',
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        // Handle the response
+        console.log('Profile Data:', response.data);
+        setProfileData(response.data);
+        // You can further process the response here
+      } catch (error) {
+        console.error('Error fetching profile data:', error);
+        // Handle errors here
+      }
+    };
+
+    // Call the fetchProfileData function
+    fetchProfileData();
+  }, []);
   const [data, setData] = useState([]);
 
   const [loading, setLoading] = useState(false);
@@ -66,8 +99,8 @@ export const ProfileDetails = () => {
             <div className='d-flex justify-content-between align-items-center' style={{ width: '100%' }}>
               <div className='d-flex justify-content-between align-items-center '>
                 <div className='d-flex flex-column justify-content-start align-items-start'>
-                  <p className='my-0 name' style={{ color: '#585D5E', fontSize: '22px' }}>Francesco</p>
-                  <p className='my-0 name' style={{ color: '#585D5E', fontSize: '14px' }}> 1 Chapel Hill, United States</p>
+                  <p className='my-0 name' style={{ color: '#585D5E', fontSize: '22px' }}>{profileData?.user?.name}</p>
+                  <p className='my-0 name' style={{ color: '#585D5E', fontSize: '14px' }}> {profileData?.user?.location?.streetAddress}   {profileData?.user?.location?.city}   {profileData?.user?.location?.state}</p>
                 </div>
               </div>
               <div style={{ paddingRight: '0px !important' }}>
