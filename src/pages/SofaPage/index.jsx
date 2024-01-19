@@ -42,7 +42,7 @@ export const index = () =>{
 
 
       <NavBar />
-      <SofaDestails data={data} />
+      <SofaDestails data={data} id={data?._id} />
 
       <Footer />
 

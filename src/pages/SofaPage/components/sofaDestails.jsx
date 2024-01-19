@@ -3,11 +3,13 @@ import axios from 'axios';
 import { Container, Row, Col } from 'react-bootstrap';
 import './sofaDetails.css';
 import Carousel from 'react-bootstrap/Carousel';
-// import img from 'components/img';
+import { ClipLoader } from "react-spinners";
+import Heart from "react-heart"
 import { useMediaQuery } from 'react-responsive';
 
-export const sofaDestails = ({ data }) => {
-  console.log(data?._id)
+export const sofaDestails = ({ data, id }) => {
+  console.log(data.likes)
+  const [active, setActive] = useState(false);
 
   const [newComment, setNewComment] = useState('');
   const isMobile = useMediaQuery({ maxWidth: 768 });
@@ -44,32 +46,29 @@ export const sofaDestails = ({ data }) => {
   const fetchPostComments = async () => {
     try {
       setLoading(true);
-      // Simulate loading for 3 seconds
-    
-      setTimeout(async () => {
-        const response = await axios.get(
-          `https://vieniprent.azurewebsites.net/api/customer/post/comment/get/${data?._id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        setLoading(false);
-        // Handle the response
-        console.log('Post Comments:', response.data.comments);
-        setUserComment(response?.data.comments);
-        // You can further process the response here
 
-        // Set loading to false after fetching is complete
-      
-      }, ); // 3000 milliseconds (3 seconds)
+      if (!id) {
+        // If id is not available, do nothing and wait
+        return;
+      }
+
+      const response = await axios.get(
+        `https://vieniprent.azurewebsites.net/api/customer/post/comment/get/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      // Handle the response
+      console.log('Post Comments:', response.data.comments);
+      setUserComment(response?.data?.comments);
+      // You can further process the response here
     } catch (error) {
       console.error('Error fetching post comments:', error);
-      setLoading(true);
       // Handle errors here
-      // Set loading to false in case of an error
-    }finally {
+    } finally {
       // Set loading to false when the fetch is complete (whether successful or not)
       setLoading(false);
     }
@@ -78,7 +77,7 @@ export const sofaDestails = ({ data }) => {
   useEffect(() => {
     // Fetch post comments when the component is mounted
     fetchPostComments();
-  }, [token]);  // Include dependencies if needed, e.g., [token]
+  }, [id, token]);
 
   const handleAddComment = async () => {
     try {
@@ -100,7 +99,7 @@ export const sofaDestails = ({ data }) => {
       // Fetch post comments again after adding a new comment
       fetchPostComments();
 
-      console.log( response.data);
+      console.log(response.data);
       // Optionally, you can update the UI or perform other actions after adding a comment.
     } catch (error) {
       alert('Login to add the comment');
@@ -110,7 +109,41 @@ export const sofaDestails = ({ data }) => {
   };
 
 
+  const handleLikePost = async () => {
+    const token = localStorage.getItem('token');
+    console.log(token);
 
+    try {
+      // Make an API call to like the post by ID
+      const response = await axios.put(
+        `https://vieniprent.azurewebsites.net/api/customer/post/like/${data?._id}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+
+      // Check if the status is OK before updating the like status
+      if (response.status === 200) {
+        setActive(true);
+      } else {
+        console.error('Failed to like post:', response.data);
+      }
+    } catch (error) {
+      console.error('Error liking post:', error.response.data);
+      if (error.response.status === 401) {
+        alert('Login to like the comment');
+      } else {
+        console.error('Failed to like post:', error.response.data);
+      }
+    }
+  };
+
+
+  // const isLiked = data.likes.some((like) => like._id === userId);
 
   return (
     <div>
@@ -169,10 +202,12 @@ export const sofaDestails = ({ data }) => {
         <Row className='mt-5  mx-auto d-flex justify-content-between align-items-center' style={ShadowWidth}>
           <Col lg={9}>
             <div className='d-block d-md-flex  justify-content-start align-items-center py-5'>
-              <div className='d-flex justify-content-center align-items-center'>
-                <img src="/SofaDetails/like-svgrepo-com.svg" alt="" />
-                <p className='my-0 fs-5 ms-3' style={{ color: '#000000' }}>{data?.likes?.length} likes</p>
+
+              <div style={{ width: '2rem' }}>
+                <Heart isActive={active} onClick={handleLikePost} />
+
               </div>
+              <span className='my-0 fs-5 ms-3' style={{ color: '#000000' }}>{data?.likes?.length} likes</span>
               <div className='d-flex justify-content-center align-items-center ms-0 ms-md-5 mt-4 mt-md-0'>
                 <img src="/SofaDetails/message-round-svgrepo-com.svg" alt="" />
                 <p className='my-0 fs-5 ms-3' style={{ color: '#000000' }}>{data?.comments?.length} Comments</p>
@@ -237,47 +272,47 @@ export const sofaDestails = ({ data }) => {
           </div>
 
           {loading ? (
-  <div className='d-flex justify-content-center align-item-center m-5' style={{height:'200px'}}>
-    <ClipLoader color={'#ffcc35'} loading={loading} size={100} />
-  </div>
-) : (
-  <div>
-    {data?.comments?.length > 0 ? (
-      userComment.map((user, index) => (
-        <div key={index} className='shadow p-3 mx-3 rounded-5 mt-5'>
-          <div className='p-2 ms-2 mt-2 d-flex align-items-center '>
-            <div
-              style={{
-                width: '28px',
-                height: '28px',
-                backgroundPosition: 'center',
-                objectFit: 'cover',
-                borderRadius: '50%',
-                overflow: 'hidden',
-              }}
-            >
-              <img src='' alt='' style={{ width: '100%', height: '100%' }} />
+            <div className='d-flex justify-content-center align-item-center m-5' style={{ height: '200px' }}>
+              <ClipLoader color={'#ffcc35'} loading={loading} size={100} />
             </div>
-            <div className='ms-3'>
-              <p className='my-0' style={{ color: '#585D5E', fontSize: '14px' }}>
-                {user?.user?.name}
-              </p>
+          ) : (
+            <div>
+              {data?.comments?.length > 0 ? (
+                userComment.map((user, index) => (
+                  <div key={index} className='shadow p-3 mx-3 rounded-5 mt-5'>
+                    <div className='p-2 ms-2 mt-2 d-flex align-items-center '>
+                      <div
+                        style={{
+                          width: '28px',
+                          height: '28px',
+                          backgroundPosition: 'center',
+                          objectFit: 'cover',
+                          borderRadius: '50%',
+                          overflow: 'hidden',
+                        }}
+                      >
+                        <img src='' alt='' style={{ width: '100%', height: '100%' }} />
+                      </div>
+                      <div className='ms-3'>
+                        <p className='my-0' style={{ color: '#585D5E', fontSize: '14px' }}>
+                          {user?.user?.name}
+                        </p>
+                      </div>
+                    </div>
+                    <p className='my-0 ms-3' style={{ color: '#585D5E', fontSize: '14px' }}>
+                      {user?.text}
+                    </p>
+                  </div>
+                ))
+              ) : (
+                <div className='shadow p-3 mx-3 rounded-5 mt-5'>
+                  <div className='p-2 ms-2 mt-2 d-flex align-items-center '>
+                    <p>No comments yet.</p>
+                  </div>
+                </div>
+              )}
             </div>
-          </div>
-          <p className='my-0 ms-3' style={{ color: '#585D5E', fontSize: '14px' }}>
-            {user?.text}
-          </p>
-        </div>
-      ))
-    ) : (
-      <div className='shadow p-3 mx-3 rounded-5 mt-5'>
-        <div className='p-2 ms-2 mt-2 d-flex align-items-center '>
-          <p>No comments yet.</p>
-        </div>
-      </div>
-    )}
-  </div>
-)}
+          )}
 
 
 

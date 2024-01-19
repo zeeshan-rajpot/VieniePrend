@@ -28,7 +28,7 @@ const Login = () => {
     
           // Handle the response accordingly (e.g., redirect to login page)
         
-        //   localStorage.setItem('userId', response.data.user.id);
+          localStorage.setItem('userId', response.data.id);
           console.log('log successful:', response.data);
           localStorage.setItem('token', response.data.token);
           navigate('/');
